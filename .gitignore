@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Build output
+/dist/
+
+# IDE/Editor specific files
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Environment file
+.env
+
+# Caches and local history
+.cache/
+.history/
