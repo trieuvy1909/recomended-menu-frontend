@@ -18,3 +18,4 @@ yarn-error.log
 # Caches and local history
 .cache/
 .history/
+.DS_Store
