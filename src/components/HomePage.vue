@@ -1,134 +1,24 @@
 <template>
-  <div>   
+  <div style="overflow-y: scroll;">   
     <LoadingComponent v-show="isShowLoading" ref="loadingComponent"/>
     <TopBarComponent ref="topBarComponent"/>
-      <header class="header" data-header>
-        <div class="container">
-    
-          <a href="#" class="logo">
-            <img src="@/assets/images/logo.svg" width="160" height="50" alt="Grilli - Home">
-          </a>
-    
-          <nav class="navbar" data-navbar>
-    
-            <button class="close-btn" aria-label="close menu" data-nav-toggler>
-              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-            </button>
-    
-            <a href="#" class="logo">
-              <img src="@/assets/images/logo.svg" width="160" height="50" alt="Grilli - Home">
-            </a>
-    
-            <ul class="navbar-list">
-    
-              <li class="navbar-item">
-                <a href="#home" class="navbar-link hover-underline active">
-                  <div class="separator"></div>
-    
-                  <span class="span">Home</span>
-                </a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#menu" class="navbar-link hover-underline">
-                  <div class="separator"></div>
-    
-                  <span class="span">Menus</span>
-                </a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#about" class="navbar-link hover-underline">
-                  <div class="separator"></div>
-    
-                  <span class="span">About Us</span>
-                </a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#" class="navbar-link hover-underline">
-                  <div class="separator"></div>
-    
-                  <span class="span">Our Chefs</span>
-                </a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#" class="navbar-link hover-underline">
-                  <div class="separator"></div>
-    
-                  <span class="span">Contact</span>
-                </a>
-              </li>
-    
-            </ul>
-    
-            <div class="text-center">
-              <p class="headline-1 navbar-title">Visit Us</p>
-    
-              <address class="body-4">
-                Restaurant St, Delicious City, <br>
-                London 9578, UK
-              </address>
-    
-              <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
-    
-              <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@grilli.com</a>
-    
-              <div class="separator"></div>
-    
-              <p class="contact-label">Booking Request</p>
-    
-              <a href="tel:+88123123456" class="body-1 contact-number hover-underline">
-                +88-123-123456
-              </a>
-            </div>
-    
-          </nav>
-    
-          <a href="#" class="btn btn-secondary">
-            <span class="text text-1">Find A Table</span>
-    
-            <span class="text text-2" aria-hidden="true">Find A Table</span>
-          </a>
-    
-          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
-          </button>
-    
-          <div class="overlay" data-nav-toggler data-overlay></div>
-    
-        </div>
-      </header>
-    
-    
-    
-    
-    
+    <HeaderComponent ref="headerComponent"/>
       <main>
-        <article>
-    
-          <!-- 
-            - #HERO
-          -->
-    
+        <article>    
           <section class="hero text-center" aria-label="home" id="home">
     
-            <ul class="hero-slider" data-hero-slider>
+            <ul class="hero-slider">
     
-              <li class="slider-item active" data-hero-slider-item>
+              <li class="slider-item active">
     
                 <div class="slider-bg">
                   <img src="@/assets/images/hero-slider-1.jpg" width="1880" height="950" alt="" class="img-cover">
                 </div>
     
-                <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p>
+                <p class="label-2 section-subtitle slider-reveal">For the love of delicious food</p>
     
                 <h1 class="display-1 hero-title slider-reveal">
-                  For the love of <br>
-                  delicious food
+                  Hôm nay ăn gì!!!
                 </h1>
     
                 <p class="body-2 hero-text slider-reveal">
@@ -136,14 +26,14 @@
                 </p>
     
                 <a href="#" class="btn btn-primary slider-reveal">
-                  <span class="text text-1">View Our Menu</span>
+                  <span class="text text-1">Tham khảo những thực đơn có sẵn</span>
     
-                  <span class="text text-2" aria-hidden="true">View Our Menu</span>
+                  <span class="text text-2" aria-hidden="true">Tham khảo những thực đơn có sẵn</span>
                 </a>
     
               </li>
     
-              <li class="slider-item" data-hero-slider-item>
+              <li class="slider-item">
     
                 <div class="slider-bg">
                   <img src="@/assets/images/hero-slider-2.jpg" width="1880" height="950" alt="" class="img-cover">
@@ -168,7 +58,7 @@
     
               </li>
     
-              <li class="slider-item" data-hero-slider-item>
+              <li class="slider-item">
     
                 <div class="slider-bg">
                   <img src="@/assets/images/hero-slider-3.jpg" width="1880" height="950" alt="" class="img-cover">
@@ -195,18 +85,18 @@
     
             </ul>
     
-            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+            <button class="slider-btn prev" aria-label="slide to previous">
               <ion-icon name="chevron-back"></ion-icon>
             </button>
     
-            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+            <button class="slider-btn next" aria-label="slide to next">
               <ion-icon name="chevron-forward"></ion-icon>
             </button>
     
             <a href="#" class="hero-btn has-after">
               <img src="@/assets/images/hero-icon.png" width="48" height="48" alt="booking icon">
     
-              <span class="label-2 text-center span">Book A Table</span>
+              <span class="label-2 text-center span">Sức khỏe là vàng</span>
             </a>
     
           </section>
@@ -350,9 +240,9 @@
               <figure class="about-banner">
     
                 <img src="@/assets/images/about-banner.jpg" width="570" height="570" loading="lazy" alt="about banner"
-                  class="w-100" data-parallax-item data-parallax-speed="1">
+                  class="w-100" data-parallax-speed="1">
     
-                <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
+                <div class="abs-img abs-img-1 has-before" data-parallax-speed="1.75">
                   <img src="@/assets/images/about-abs-image.jpg" width="285" height="285" loading="lazy" alt=""
                     class="w-100">
                 </div>
@@ -979,7 +869,7 @@
             <div class="footer-brand has-before has-after">
     
               <a href="#" class="logo">
-                <img src="@/assets/images/logo.svg" width="160" height="50" loading="lazy" alt="grilli home">
+                <img src="@/assets/images/logo.png" width="160" height="50" loading="lazy" alt="grilli home">
               </a>
     
               <address class="body-4">
@@ -1092,34 +982,39 @@
         - #BACK TO TOP
       -->
     
-      <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+      <a href="#top" class="back-top-btn active" aria-label="back to top">
         <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
       </a>
   </div>
 </template>
 
 <script>
-import LoadingComponent from './LoadingPage.vue';
-import TopBarComponent from './TopBar.vue';
+import HeaderComponent from './base/HeaderComponent.vue';
+import LoadingComponent from './base/LoadingComponent.vue';
+import TopBarComponent from './base/TopBar.vue';
 export default {
     name:'HomePage',
     components:{
-      LoadingComponent,
-      TopBarComponent,
-    },
+    LoadingComponent,
+    TopBarComponent,
+    HeaderComponent
+},
     data() {
       return {
         isShowLoading:true,
       };
     },
     async created(){
-      await this.sleep(3000);
+      await this.sleep(1000);
       this.isShowLoading = false; 
     },
     methods:{
       sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-      }
+      },
+      handleScroll() {
+      
+      },
     }
 }
 </script>

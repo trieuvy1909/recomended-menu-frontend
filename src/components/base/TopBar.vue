@@ -19,7 +19,7 @@
           <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
         </div>
 
-        <span class="span">Daily : 8.00 am to 10.00 pm</span>
+        <span class="span">24/7</span>
       </div>
 
       <a href="tel:+84363240449" class="topbar-item link">

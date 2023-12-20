@@ -57,7 +57,8 @@
 
   /* font-weight */
   --weight-regular: 400;
-  --weight-bold: 700;
+  --weight-bold-1: 700;
+  --weight-bold-2: 1000;
 
   /* line-height */
   --lineHeight-1: 1em;
@@ -260,7 +261,7 @@ body.nav-active { overflow: hidden; }
   transform: rotate(45deg);
 }
 
-.contact-label { font-weight: var(--weight-bold); }
+.contact-label { font-weight: var(--weight-bold-1); }
 
 .contact-number {
   color: var(--gold-crayola);
@@ -304,7 +305,7 @@ body.nav-active { overflow: hidden; }
 .section-subtitle {
   position: relative;
   color: var(--gold-crayola);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-2);
   margin-block-end: 12px;
@@ -322,7 +323,7 @@ body.nav-active { overflow: hidden; }
   position: relative;
   color: var(--gold-crayola);
   font-size: var(--fontSize-label-2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-5);
   max-width: max-content;
@@ -431,7 +432,7 @@ body.nav-active { overflow: hidden; }
   margin-inline: auto;
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-3);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   transition: var(--transition-1);
 }
 
@@ -554,7 +555,7 @@ body.nav-active { overflow: hidden; }
   background-image: var(--loading-text-gradient);
   background-size: 500%;
   font-size: calc(2rem + 3vw);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   line-height: 1em;
   text-transform: uppercase;
   letter-spacing: 16px;
@@ -703,7 +704,9 @@ body.nav-active { overflow: hidden; }
 .navbar-link::after { display: none; }
 
 .navbar-link .span { transition: var(--transition-1); }
-
+.logo img{
+  animation: rotate360 15s linear infinite;
+}
 .navbar-link:is(:hover, :focus-visible, .active) .span {
   color: var(--gold-crayola);
   transform: translateX(20px);
@@ -842,7 +845,7 @@ body.nav-active { overflow: hidden; }
 
 .hero-btn .span {
   color: var(--black);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-1);
   line-height: var(--lineHeight-3);
@@ -1144,7 +1147,7 @@ body.nav-active { overflow: hidden; }
 
 .testi .profile-name {
   color: var(--gold-crayola);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-3);
 }
@@ -1267,7 +1270,7 @@ textarea.input-field {
   padding: 5px 10px;
   color: var(--gold-crayola);
   background-color: var(--black);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   letter-spacing: var(--letterSpacing-1);
   line-height: 14px;
 }
@@ -1275,7 +1278,7 @@ textarea.input-field {
 .event-card .card-subtitle {
   color: var(--gold-crayola);
   text-transform: uppercase;
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   letter-spacing: var(--letterSpacing-2);
   margin-block-end: 5px;
 }
@@ -1364,7 +1367,7 @@ textarea.input-field {
 
 .footer-link {
   color: var(--quick-silver);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold-1);
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-4);
   margin-inline: auto;
@@ -1962,7 +1965,7 @@ textarea.input-field {
   }
 
   .navbar-link {
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-bold-1);
     letter-spacing: var(--letterSpacing-1);
   }
 
