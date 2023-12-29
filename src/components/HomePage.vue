@@ -535,8 +535,8 @@
           <div class="footer-bottom">
     
             <p class="copyright">
-              &copy; 2022 Grilli. All Rights Reserved | Crafted by <a href="https://github.com/codewithsadee"
-                target="_blank" class="link">codewithsadee</a>
+              &copy; 2022 Grilli. All Rights Reserved | Crafted by <a href="https://www.facebook.com/trieu.vy.5245/"
+                target="_blank" class="link">Triệu Vỷ</a>
             </p>
     
           </div>
