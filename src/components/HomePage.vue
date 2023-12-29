@@ -15,7 +15,7 @@
               <li class="slider-item active">
     
                 <div class="slider-bg">
-                  <img :src='srcBackGroundImage' width="1880" height="950" alt="" class="img-cover">
+                  <img :src="srcBackGroundImage" width="1880" height="950" alt="" class="img-cover">
                 </div>
     
                 <p class="label-2 section-subtitle slider-reveal">For the love of delicious food</p>
@@ -88,11 +88,11 @@
     
             </ul>
     
-            <button class="slider-btn prev" aria-label="slide to previous">
+            <button class="slider-btn prev" @click='changeSlide("prev")'>
               <ion-icon name="chevron-back"></ion-icon>
             </button>
     
-            <button class="slider-btn next" aria-label="slide to next">
+            <button class="slider-btn next" @click='changeSlide("next")'>
               <ion-icon name="chevron-forward"></ion-icon>
             </button>
     
@@ -569,9 +569,9 @@ export default {
         isShowLoading:true,
         srcBackGroundImageList:
         [
-          '@/assets/images/hero-slider-1.jpg',
-          '@/assets/images/hero-slider-2.jpg',
-          '@/assets/images/hero-slider-3.jpg'
+          require('../../src/assets/images/hero-slider-1.jpg'),
+          require('../../src/assets/images/hero-slider-2.jpg'),
+          require('../../src/assets/images/hero-slider-3.jpg')
         ],
         indexBackGroundImage:0,
       };
@@ -579,14 +579,22 @@ export default {
     async created(){
       await this.sleep(1000);
       this.isShowLoading = false; 
+      this.startImageSlider();
     },
     methods:{
+      startImageSlider() {
+        setInterval(() => {
+          this.indexBackGroundImage = (this.indexBackGroundImage + 1) % this.srcBackGroundImageList.length;
+        }, 5000); 
+      },
       sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
       },
-      handleScroll() {
-      
-      },
+      changeSlide(event){
+        this.indexBackGroundImage = (event ==='prev')? this.indexBackGroundImage-1:this.indexBackGroundImage+1;
+        this.indexBackGroundImage = (this.indexBackGroundImage>this.srcBackGroundImageList.length-1) ? 0: this.indexBackGroundImage;
+        this.indexBackGroundImage = (this.indexBackGroundImage<0)?this.srcBackGroundImageList.length-1:this.indexBackGroundImage;
+      }
     },
     computed:{
       srcBackGroundImage(){
@@ -598,5 +606,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
