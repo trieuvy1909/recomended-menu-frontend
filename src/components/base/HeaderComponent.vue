@@ -2,7 +2,7 @@
     <header class="header" data-header>
         <div class="container">
     
-          <a href="#" class="logo" style="min-width: 200px;">
+          <a href="#home" class="logo" style="min-width: 200px;">
             <img src="@/assets/images/logo.png" width="60" height="60" alt="Logo - Home" style="border-radius: 50%;">
           </a>
           <nav class="navbar" data-navbar>
@@ -57,9 +57,10 @@
           </a>
     
           <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
+            <span class="line line-1">Trang chủ</span>
+            <span class="line line-2">Thực đơn</span>
+            <span class="line line-3">Chúng tôi</span>
+            <span class="line line-4">Liên lạc</span>
           </button>
     
           <div class="overlay" data-nav-toggler data-overlay></div>
