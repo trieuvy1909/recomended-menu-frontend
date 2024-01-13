@@ -1160,7 +1160,6 @@ body.nav-active { overflow: hidden; }
   #RESERVATION
 \*-----------------------------------*/
 
-.reservation-form { margin-block-start: -270px; }
 
 .form-text { margin-block-end: 40px; }
 
@@ -1182,8 +1181,7 @@ body.nav-active { overflow: hidden; }
 
 .form-right .body-4:not(:last-child) { margin-block-end: 25px; }
 
-.form-left,
-.form-right { padding: 40px 20px 30px; }
+.form-right { padding: 120px 20px 60px; }
 
 .input-field[type="date"] {
   text-transform: uppercase;
@@ -1199,15 +1197,8 @@ textarea.input-field {
   line-height: var(--lineHeight-1);
 }
 
-.form-left .btn {
-  max-width: 100%;
-  width: 100%;
-}
 
-.form-right {
-  background-repeat: repeat;
-  background-position: top left;
-}
+
 
 
 
@@ -1855,16 +1846,6 @@ textarea.input-field {
 
 
 
-  /**
-   * RESERVATION
-   */
-
-  .reservation-form {
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-  }
-
-
 
   /**
    * FOOTER
@@ -2038,22 +2019,6 @@ textarea.input-field {
     gap: 55px 200px;
     margin-block-end: 55px;
   }
-
-
-
-  /**
-   * TESTIMONIALS
-   */
-
-  .form-left,
-  .form-right { padding: 75px 60px; }
-
-
-
-
-  /**
-   * FEATURES
-   */
 
   .features .grid-list { grid-template-columns: repeat(4, 1fr); }
 
