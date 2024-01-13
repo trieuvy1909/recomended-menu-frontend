@@ -291,21 +291,9 @@
       </section>
     </main>
     
-    <footer class="footer section has-bg-image text-center"
-      style="background-image: url('@/assets/images/footer-bg.jpg')">
-      <div class="container">  
-        <div class="footer-bottom">
-  
-          <p class="copyright">
-            &copy; 2022 Grilli. All Rights Reserved | Crafted by <a href="https://www.facebook.com/trieu.vy.5245/"
-              target="_blank" class="link">Triệu Vỷ</a>
-          </p>
-  
-        </div>
-  
-      </div>
-    </footer>
     
+    <FooterComponent ref="footerComponent"/>
+
     <a href="#top" class="back-top-btn active" aria-label="back to top">
       <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
     </a>
@@ -316,12 +304,14 @@
 import HeaderComponent from './base/HeaderComponent.vue';
 import LoadingComponent from './base/LoadingComponent.vue';
 import TopBarComponent from './base/TopBar.vue';
+import FooterComponent from './base/Footer.vue';
 export default {
     name:'HomePage',
     components:{
     LoadingComponent,
     TopBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
 },
     data() {
       return {
