@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
+// src/main.js
+
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router/';
+
 import '@/assets/css/style.css'; 
 import '@/assets/js/script'; 
-// import { IonicVue } from '@ionic/vue';
-
-Vue.config.productionTip = false
-// Vue.use(IonicVue);
 
 new Vue({
+  el: '#app',
+  router,
   render: h => h(App),
-}).$mount('#app')
+});

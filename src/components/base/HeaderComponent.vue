@@ -56,13 +56,6 @@
             <span class="text text-2" aria-hidden="true">Tạo thực đơn</span>
           </a>
     
-          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-            <span class="line line-1">Trang chủ</span>
-            <span class="line line-2">Thực đơn</span>
-            <span class="line line-3">Chúng tôi</span>
-            <span class="line line-4">Liên lạc</span>
-          </button>
-    
           <div class="overlay" data-nav-toggler data-overlay></div>
     
         </div>

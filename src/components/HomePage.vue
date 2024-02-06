@@ -11,7 +11,9 @@
           <li class="slider-item active">
 
             <div class="slider-bg">
-              <img :src="srcBackGroundImage" width="1880" height="950" alt="" class="img-cover">
+              <transition mode="out-in">
+                <img :key="srcBackGroundImage" :src="srcBackGroundImage" width="1880" height="950" alt="" class="img-cover">
+              </transition>
             </div>
 
             <p class="label-2 section-subtitle slider-reveal">For the love of delicious food</p>
@@ -326,7 +328,6 @@ export default {
       };
     },
     async created(){
-      await this.sleep(1000);
       this.isShowLoading = false; 
       this.startImageSlider();
     },
