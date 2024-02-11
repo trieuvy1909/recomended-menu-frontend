@@ -4,10 +4,27 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 const routes = [
-  { path: '/', component:  () => import('../components/LoginPage.vue'), }, 
-  { path: '/login', component: () => import('../components/LoginPage.vue') }, 
+  { 
+    path: '/',
+    name: 'Home', 
+    component:  () => import('../components/HomePage.vue'), 
+  }, 
+  { 
+    path: '/login',
+    name: 'Login', 
+    component: () => import('../components/LoginPage.vue') 
+  }, 
+  { 
+    path: '/plan-list',
+    name: 'PlanList', 
+    component: () => import('../components/manage/PlanListPage.vue') 
+  }, 
 ];
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
+
+export default router;

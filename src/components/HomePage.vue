@@ -1,12 +1,12 @@
 <template>
-  <div>   
+  <div style="overflow: auto;height: 100vh;">   
     <LoadingComponent v-show="isShowLoading" ref="loadingComponent"/>
     <TopBarComponent ref="topBarComponent"/>
     <HeaderComponent ref="headerComponent"/>
     <main>
-      <section class="hero text-center" aria-label="home" id="home">
+      <section class="hero text-center" id="home">
 
-        <ul class="hero-slider">
+        <ul>
 
           <li class="slider-item active">
 
@@ -129,7 +129,7 @@
         </div>
       </section>
 
-      <section class="section event bg-black-10" aria-label="menu-label" id="menu">
+      <section class="section event bg-black-10" id="menu">
         <div class="container" style="margin-top: 20px;">
 
           <p class="section-subtitle label-2 text-center">Recent Updates</p>
@@ -163,7 +163,7 @@
               <div class="event-card has-before hover:shine">
 
                 <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="@/assets/images/event-3.jpg" width="350" height="450" loading="lazy"
+                  <img src="@/assets/images/event-2.jpg" width="350" height="450" loading="lazy"
                     alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
 
                   <time class="publish-date label-2" datetime="2022-09-08">08/09/2022</time>
@@ -212,7 +212,7 @@
         </div>
       </section>
 
-      <section class="section about text-center" aria-labelledby="about-label" id="about">
+      <section class="section about text-center" id="about">
         <div class="container">
 
           <div class="about-content">
@@ -249,42 +249,26 @@
         </div>
       </section>
 
-      <div style="margin-top: 200px;"></div>
-      <section class="reservation" aria-labelledby="contact-label" id="contact">
+      <section class="reservation" id="contact">
         <div class="container">
 
           <div class="form bg-black-10">
-            <div class="form-right text-center" style="background-image: url('src/assets/images/form-pattern.png')">
+            <div class="form-right text-center" style="background-image: url('../../src/assets/images/form-pattern.png')">
 
               <h2 class="headline-1 text-center">Contact Us</h2>
 
-              <p class="contact-label">Booking Request</p>
+              <p class="contact-label">Phone number</p>
 
-              <a href="tel:+88123123456" class="body-1 contact-number hover-underline">+88-123-123456</a>
+              <a href="tel:+84363240449" class="body-1 contact-number hover-underline">+84-363-240449</a>
 
               <div class="separator"></div>
 
               <p class="contact-label">Location</p>
 
               <address class="body-4">
-                Restaurant St, Delicious City, <br>
-                London 9578, UK
+                Tan Phong Ward, District 7<br>
+                HCMC, VietNam
               </address>
-
-              <p class="contact-label">Lunch Time</p>
-
-              <p class="body-4">
-                Monday to Sunday <br>
-                11.00 am - 2.30pm
-              </p>
-
-              <p class="contact-label">Dinner Time</p>
-
-              <p class="body-4">
-                Monday to Sunday <br>
-                05.00 pm - 10.00pm
-              </p>
-
             </div>
 
           </div>
