@@ -26,7 +26,7 @@
               Come with family & feel the joy of mouthwatering food
             </p>
 
-            <a href="#" class="btn btn-primary slider-reveal">
+            <a href="#" class="btn slider-reveal">
               <span class="text text-1">Tham khảo những thực đơn có sẵn</span>
 
               <span class="text text-2" aria-hidden="true">Tham khảo những thực đơn có sẵn</span>
