@@ -50,10 +50,10 @@
     
           </nav>
     
-          <a href="#" class="btn btn-secondary">
-            <span class="text text-1">Tạo thực đơn</span>
+          <a href="/login" class="btn">
+            <span class="text text-1">Đăng nhập</span>
     
-            <span class="text text-2" aria-hidden="true">Tạo thực đơn</span>
+            <span class="text text-2" aria-hidden="true">Đăng nhập</span>
           </a>
     
           <div class="overlay" data-nav-toggler data-overlay></div>

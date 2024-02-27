@@ -1,49 +1,56 @@
 <template>
   <div class="background-login">
     <form class="form-login">
-      <div class="form-outline">
-        <input type="email" id="form2Example1" class="form-control" />
-        <label class="form-label" for="form2Example1">Email address</label>
+      <div style="display: flex;justify-content: center;">
+        <img src="@/assets/images/logo.png" width="70" height="70" alt="Logo - Home" style="border-radius: 20%;">
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="email">Số điện thoại</label>
+        <input type="phone" id="phone" class="form-control input-login" />
       </div>
 
-      <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
-        <label class="form-label" for="form2Example2">Password</label>
+      <div class="mb-4">
+        <label class="form-label" for="password">Mật khẩu</label>
+        <input type="password" id="password" class="form-control input-login" />
       </div>
 
-      <div class="row mb-4">
+      <div v-if="isRegister" class="mb-4">
+        <label class="form-label" for="co-password">Xác nhận mật khẩu</label>
+        <input type="password" id="co-password" class="form-control input-login" />
+      </div>
+
+      <div v-if="isLogin" class="row mb-4">
         <div class="col d-flex justify-content-center">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-            <label class="form-check-label" for="form2Example31"> Remember me </label>
+            <input class="form-check-input" type="checkbox" value="" id="remember-me" checked />
+            <label class="form-check-label" for="remember-me"> Ghi nhớ phiên đăng nhập</label>
           </div>
         </div>
 
         <div class="col">
-          <a href="#!">Forgot password?</a>
+          <a href="#!">Quên mật khẩu?</a>
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-      <div class="text-center">
-        <p>Not a member? <a href="#!">Register</a></p>
-        <p>or sign up with:</p>
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-github"></i>
-        </button>
+      
+      <div v-if="isRegister" class="text-center">
+        <button type="button" class="mb-4 btn">Đăng kí</button>
+      </div>
+      <div v-if="isLogin" class="text-center">
+        <button type="button" class="mb-4 btn" @click="loginHandler()">Đăng nhập</button>
+      </div>
+      <div class="text-center"> 
+        <p>hoặc tham gia bằng:</p>
+        <a class="btn mx-1" href="https://facebook.com" target="_blank">Facebook</a>
+        <a class="btn mx-1" href="https://google.com" target="_blank">Google</a>
+        <div v-if="isLogin">
+          <p>Bạn chưa đăng kí?</p>
+          <button type="button" class="mb-4 btn" @click="changeLoginOrRegister()">Tham gia ngay</button>
+        </div>
+        <div v-else>
+          <p>Bạn đã có tài khoản?</p>
+          <button type="button" class="mb-4 btn" @click="changeLoginOrRegister()">Đăng nhập ngay</button>
+        </div>
       </div>
     </form>
   </div>
@@ -54,25 +61,42 @@ export default {
     name:'LoginPage',
     data() {
       return {
+        isLogin:true,
+        isRegister:false,
       };
     },
+    methods:{
+      changeLoginOrRegister(){
+        this.isLogin = !this.isLogin;
+        this.isRegister = !this.isRegister;
+      },
+      loginHandler(){
+        this.$router.push('/');
+      }
+    }
 }
 </script>
 <style scoped>
 .form-login{
-  width: 50%;
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 40%;
   transform: translate(-50%, -50%);
-  background-color: white; 
   border-radius: 20px;
+  border: 3px solid var(--gold-crayola);
+  padding:50px;
 }
 .background-login{
   background-image: url('../../src/assets/images/hero-slider-1.jpg');
   height:100vh;
   background-size:cover;
   background-position: center;
+}
+.input-login{
+  height: 40px;
+  font-size: 14px;
+  border-radius: 10px;
 }
 </style>
 

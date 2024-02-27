@@ -51,7 +51,7 @@
               Come with family & feel the joy of mouthwatering food
             </p>
 
-            <a href="#" class="btn btn-primary slider-reveal">
+            <a href="#" class="btn slider-reveal">
               <span class="text text-1">View Our Menu</span>
 
               <span class="text text-2" aria-hidden="true">View Our Menu</span>
@@ -76,7 +76,7 @@
               Come with family & feel the joy of mouthwatering food
             </p>
 
-            <a href="#" class="btn btn-primary slider-reveal">
+            <a href="#" class="btn slider-reveal">
               <span class="text text-1">View Our Menu</span>
 
               <span class="text text-2" aria-hidden="true">View Our Menu</span>
@@ -203,7 +203,7 @@
 
           </ul>
 
-          <a href="#" class="btn btn-primary">
+          <a href="#" class="btn" style="display: flex;">
             <span class="text text-1">View Our Blog</span>
 
             <span class="text text-2" aria-hidden="true">View Our Blog</span>
@@ -312,7 +312,7 @@ export default {
       };
     },
     async created(){
-      this.isShowLoading = false; 
+      this.isShowLoading = true; 
       this.startImageSlider();
     },
     methods:{
@@ -334,6 +334,9 @@ export default {
       srcBackGroundImage(){
         return this.srcBackGroundImageList[this.indexBackGroundImage];
       },
+    },
+    mounted(){
+      this.isShowLoading = false;
     }
 }
 </script>
