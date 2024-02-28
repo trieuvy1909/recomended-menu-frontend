@@ -73,7 +73,20 @@ export default {
         rePassword:'',
       };
     },
+    created(){
+      window.addEventListener('keydown', this.handleKeyDown);
+    },
+    beforeDestroy() {
+      window.removeEventListener('keydown', this.handleKeyDown);
+    },
     methods:{
+      handleKeyDown(event) {
+        if (event.key === 'Enter') {
+          if(this.isLogin){
+            this.loginHandler();
+          }
+        }
+      },
       changeLoginOrRegister(){
         this.isLogin = !this.isLogin;
         this.isRegister = !this.isRegister;

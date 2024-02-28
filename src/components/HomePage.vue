@@ -315,6 +315,29 @@ export default {
       this.startImageSlider();
     },
     methods:{
+      showLogoutDialog() {
+        this.$swal({
+          title: 'Bạn chắc chứ!',
+          html: '<div class="custom-html-container">Bạn chắc chắn về việc đăng xuất khỏi tài khoản này?</div>',
+          icon: 'warning',
+          confirmButtonText: 'Đăng xuất',
+          cancelButtonText: 'Hủy',
+          showCancelButton: true, 
+          preConfirm: () => {
+            this.confirmLogout();
+          },
+          customClass: {
+            popup: 'custom-dialog',
+            confirmButton: 'custom-confirm-button',
+            cancelButton: 'custom-cancel-button',
+            title: 'custom-title',
+          },
+        });
+      },
+      confirmLogout() {
+        localStorage.removeItem('userInfo');
+        window.location.reload();
+      },
       userDataHandler(){
         let userString = localStorage.getItem('userInfo');
         if(userString){
@@ -347,5 +370,37 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+.custom-dialog {
+  width: 600px !important; /* Đặt chiều rộng */
+  height: 300px !important; /* Đặt chiều cao */
+  border-radius: 10px !important;
+  border: 5px solid var(--gold-crayola) !important;
+}
+.custom-title {
+  font-size: 3rem; 
+  font-family: var(--fontFamily-dm_sans) !important;
+}
+
+.custom-confirm-button, .custom-cancel-button {
+  width: 10rem !important;
+  border-radius: 10px !important;
+  font-size: 1.3rem !important;
+  font-family: var(--fontFamily-dm_sans) !important;
+}
+
+.custom-confirm-button {
+  background-color: red !important; 
+}
+
+.custom-cancel-button {
+  background-color: white !important; 
+  color: black  !important;
+  border: 1px solid black !important;
+}
+.custom-html-container {
+  font-size: 1.5rem; /* Kích thước chữ */
+  font-family: var(--fontFamily-dm_sans) !important;
+}
+
 </style>

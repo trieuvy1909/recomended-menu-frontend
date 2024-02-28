@@ -54,14 +54,26 @@
             <span class="text text-1">Đăng nhập</span>
             <span class="text text-2" aria-hidden="true">Đăng nhập</span>
           </a>
-          <span v-else class="btn">
-            <span class="text text-1">Xin chào {{ userInfo.fullname }}
-              <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
+            
+          <el-dropdown @command="handleCommand" v-if="userInfo">
+            <span class="btn el-dropdown-link">
+              <span class="text text-1">Xin chào {{ userInfo.fullname }}
+                <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <span class="text text-2" aria-hidden="true">Xin chào {{ userInfo.fullname }}
+                <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
             </span>
-            <span class="text text-2" aria-hidden="true">Xin chào {{ userInfo.fullname }}
-              <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
-            </span>
-          </span>
+            <el-dropdown-menu>
+              <el-dropdown-item command="info">Thông tin cá nhân</el-dropdown-item>
+              <el-dropdown-item command="account">Quản lí tài khoản</el-dropdown-item>
+              <el-dropdown-item command="menu">Quản lí thực đơn</el-dropdown-item>
+              <el-dropdown-item command="logout">Đăng xuất</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          
     
           <div class="overlay" data-nav-toggler data-overlay></div>
     
@@ -80,6 +92,29 @@ export default {
       userInfo :Object,
     },
     created(){
+    },
+    methods:{
+      handleCommand(command) {
+        switch (command) {
+          case 'info':
+            this.handleInfo();
+            break;
+          case 'account':
+            this.handleAccount();
+            break;
+          case 'menu':
+            this.handleMenu();
+            break;
+          case 'logout':
+            this.logOutHandler();
+            break;
+          default:
+            break;
+        }
+      },
+      logOutHandler(){
+        this.$parent.showLogoutDialog();
+      }
     }
 }
 </script>
