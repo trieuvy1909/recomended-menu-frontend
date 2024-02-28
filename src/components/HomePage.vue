@@ -317,7 +317,9 @@ export default {
     methods:{
       userDataHandler(){
         let userString = localStorage.getItem('userInfo');
-        this.userData =  JSON.parse(userString);
+        if(userString){
+          this.userData =  JSON.parse(userString);
+        }
       },
       startImageSlider() {
         setInterval(() => {

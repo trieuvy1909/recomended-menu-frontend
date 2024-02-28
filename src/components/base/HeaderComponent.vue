@@ -50,7 +50,7 @@
     
           </nav>
     
-          <a v-if="!userInfo.fullname" href="/login" class="btn">
+          <a v-if="!userInfo" href="/login" class="btn">
             <span class="text text-1">Đăng nhập</span>
             <span class="text text-2" aria-hidden="true">Đăng nhập</span>
           </a>
