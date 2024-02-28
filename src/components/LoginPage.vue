@@ -1,22 +1,23 @@
 <template>
   <div class="background-login">
+    <LoadingComponent ref="loadingComponent"/>
     <form class="form-login">
       <div style="display: flex;justify-content: center;">
         <img src="@/assets/images/logo.png" width="70" height="70" alt="Logo - Home" style="border-radius: 20%;">
       </div>
       <div class="mb-4">
-        <label class="form-label" for="email">Số điện thoại</label>
-        <input type="phone" id="phone" class="form-control input-login" />
+        <label class="form-label" for="email">Email</label>
+        <input v-model="email" type="email" id="email" class="form-control input-login" />
       </div>
 
       <div class="mb-4">
         <label class="form-label" for="password">Mật khẩu</label>
-        <input type="password" id="password" class="form-control input-login" />
+        <input v-model="password" type="password" id="password" class="form-control input-login" />
       </div>
 
       <div v-if="isRegister" class="mb-4">
-        <label class="form-label" for="co-password">Xác nhận mật khẩu</label>
-        <input type="password" id="co-password" class="form-control input-login" />
+        <label class="form-label" for="re-password">Xác nhận mật khẩu</label>
+        <input v-model="rePassword" type="password" id="re-password" class="form-control input-login" />
       </div>
 
       <div v-if="isLogin" class="row mb-4">
@@ -40,9 +41,9 @@
         <button type="button" class="mb-4 btn" @click="loginHandler()">Đăng nhập</button>
       </div>
       <div class="text-center"> 
-        <p>hoặc tham gia bằng:</p>
+        <!-- <p>hoặc tham gia bằng:</p>
         <a class="btn mx-1" href="https://facebook.com" target="_blank">Facebook</a>
-        <a class="btn mx-1" href="https://google.com" target="_blank">Google</a>
+        <a class="btn mx-1" href="https://google.com" target="_blank">Google</a> -->
         <div v-if="isLogin">
           <p>Bạn chưa đăng kí?</p>
           <button type="button" class="mb-4 btn" @click="changeLoginOrRegister()">Tham gia ngay</button>
@@ -57,12 +58,19 @@
 </template>
 
 <script>
+
+
 export default {
     name:'LoginPage',
+    components:{
+    },
     data() {
       return {
         isLogin:true,
         isRegister:false,
+        email:'',
+        password:'',
+        rePassword:'',
       };
     },
     methods:{
@@ -70,8 +78,31 @@ export default {
         this.isLogin = !this.isLogin;
         this.isRegister = !this.isRegister;
       },
-      loginHandler(){
-        this.$router.push('/');
+      async loginHandler(){
+        let isPassLogin = false;
+        let userInfo = {};
+        this.$refs.loadingComponent.isShowLoading = true;
+        let param = {};
+        param.email = this.email;
+        param.password  = this.password
+        await this.$http.post('login',param)
+        .then((res)=>{ 
+          if(res.data.status == 0){
+            isPassLogin = true;
+            userInfo = res.data.data;
+            this.$swal('Thành công!', res.data.message, 'success');
+          }
+        })
+        .catch((err)=>{
+          this.$swal('Thất bại!', err.response.data.message, 'error');
+        })
+        .finally(()=>{
+          this.$refs.loadingComponent.isShowLoading = false;
+        });
+        if(isPassLogin) { 
+          localStorage.setItem('userInfo', JSON.stringify(userInfo)); 
+          this.$router.push('/');
+        }
       }
     }
 }
@@ -94,9 +125,10 @@ export default {
   background-position: center;
 }
 .input-login{
-  height: 40px;
+  height: 45px;
   font-size: 14px;
   border-radius: 10px;
+  border: 3px solid var(--gold-crayola);
 }
 </style>
 

@@ -1,8 +1,8 @@
 <template>
   <div style="overflow: auto;height: 100vh;">   
-    <LoadingComponent v-show="isShowLoading" ref="loadingComponent"/>
+    <LoadingComponent ref="loadingComponent"/>
     <TopBarComponent ref="topBarComponent"/>
-    <HeaderComponent ref="headerComponent"/>
+    <HeaderComponent :userInfo="userData.infor" ref="headerComponent"/>
     <main>
       <section class="hero text-center" id="home">
 
@@ -123,7 +123,7 @@
             <img src="@/assets/images/testi-avatar.jpg" width="100" height="100" loading="lazy" alt="Sam Jhonson"
               class="img">
 
-            <p class="label-2 profile-name">Sam Jhonson</p>
+            <p class="label-2 profile-name">Triệu Vỷ</p>
           </div>
 
         </div>
@@ -288,20 +288,17 @@
 
 <script>
 import HeaderComponent from './base/HeaderComponent.vue';
-import LoadingComponent from './base/LoadingComponent.vue';
 import TopBarComponent from './base/TopBar.vue';
 import FooterComponent from './base/Footer.vue';
 export default {
     name:'HomePage',
     components:{
-    LoadingComponent,
     TopBarComponent,
     HeaderComponent,
     FooterComponent,
 },
     data() {
       return {
-        isShowLoading:true,
         srcBackGroundImageList:
         [
           require('../../src/assets/images/hero-slider-1.jpg'),
@@ -309,13 +306,19 @@ export default {
           require('../../src/assets/images/hero-slider-3.jpg')
         ],
         indexBackGroundImage:0,
+        userData:{},
       };
     },
-    async created(){
-      this.isShowLoading = true; 
+    created(){
+      //this.$refs.loadingComponent.isShowLoading = true; 
+      this.userDataHandler();
       this.startImageSlider();
     },
     methods:{
+      userDataHandler(){
+        let userString = localStorage.getItem('userInfo');
+        this.userData =  JSON.parse(userString);
+      },
       startImageSlider() {
         setInterval(() => {
           this.indexBackGroundImage = (this.indexBackGroundImage + 1) % this.srcBackGroundImageList.length;
@@ -336,7 +339,7 @@ export default {
       },
     },
     mounted(){
-      this.isShowLoading = false;
+      //this.$refs.loadingComponent.isShowLoading = false;
     }
 }
 </script>

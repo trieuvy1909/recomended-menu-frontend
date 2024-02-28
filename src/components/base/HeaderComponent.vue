@@ -50,11 +50,18 @@
     
           </nav>
     
-          <a href="/login" class="btn">
+          <a v-if="!userInfo.fullname" href="/login" class="btn">
             <span class="text text-1">Đăng nhập</span>
-    
             <span class="text text-2" aria-hidden="true">Đăng nhập</span>
           </a>
+          <span v-else class="btn">
+            <span class="text text-1">Xin chào {{ userInfo.fullname }}
+              <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
+            </span>
+            <span class="text text-2" aria-hidden="true">Xin chào {{ userInfo.fullname }}
+              <img :src="userInfo.avt" width="35" height="35" alt="Avatar" style="border-radius: 50%;display: inline;">
+            </span>
+          </span>
     
           <div class="overlay" data-nav-toggler data-overlay></div>
     
@@ -69,6 +76,11 @@ export default {
       return {
       };
     },
+    props: {
+      userInfo :Object,
+    },
+    created(){
+    }
 }
 </script>
 <style scoped>
