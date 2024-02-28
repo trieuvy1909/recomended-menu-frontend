@@ -1,6 +1,7 @@
 <template>
   <div class="background-login">
     <LoadingComponent ref="loadingComponent"/>
+    <ReLoadComponent v-show="isShowReLoad" ref="reLoadComponent"/>
     <form class="form-login">
       <div style="display: flex;justify-content: center;">
         <img src="@/assets/images/logo.png" width="70" height="70" alt="Logo - Home" style="border-radius: 20%;">
@@ -34,11 +35,13 @@
       </div>
 
       
-      <div v-if="isRegister" class="text-center">
+      <div v-if="isRegister" class="text-center" style="display: flex;gap: 20px;justify-content: center;">
         <button type="button" class="mb-4 btn">Đăng kí</button>
+        <button type="button" class="mb-4 btn" @click="goHome()">Trở lại</button>
       </div>
-      <div v-if="isLogin" class="text-center">
+      <div v-if="isLogin" class="text-center" style="display: flex;gap: 20px;justify-content: center;">
         <button type="button" class="mb-4 btn" @click="loginHandler()">Đăng nhập</button>
+        <button type="button" class="mb-4 btn" @click="goHome()" >Trở lại</button>
       </div>
       <div class="text-center"> 
         <!-- <p>hoặc tham gia bằng:</p>
@@ -66,6 +69,7 @@ export default {
     },
     data() {
       return {
+        isShowReLoad:false,
         isLogin:true,
         isRegister:false,
         email:'',
@@ -74,12 +78,23 @@ export default {
       };
     },
     created(){
+      this.isShowReLoad = true;
       window.addEventListener('keydown', this.handleKeyDown);
+    },
+    async mounted(){
+      await this.sleep(1000);
+      this.isShowReLoad = false;
     },
     beforeDestroy() {
       window.removeEventListener('keydown', this.handleKeyDown);
     },
     methods:{
+      goHome(){
+        this.$router.push('/');
+      },
+      sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      },
       handleKeyDown(event) {
         if (event.key === 'Enter') {
           if(this.isLogin){

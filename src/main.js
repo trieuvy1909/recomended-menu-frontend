@@ -11,8 +11,9 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import LoadingComponent from '@/components/base/LoadingComponent.vue';
-
+import ReLoadComponent  from '@/components/base/ReLoadComponent.vue';
 Vue.component('LoadingComponent', LoadingComponent);
+Vue.component('ReLoadComponent', ReLoadComponent);
 import axios from 'axios';
 axios.defaults.baseURL = 'https://recomended-menu-backend.onrender.com/api';
 

@@ -1,8 +1,8 @@
 <template>
   <div style="overflow: auto;height: 100vh;">   
-    <LoadingComponent ref="loadingComponent"/>
     <TopBarComponent ref="topBarComponent"/>
     <HeaderComponent :userInfo="userData.infor" ref="headerComponent"/>
+    <ReLoadComponent v-show="isShowReLoad" ref="reLoadComponent"/>
     <main>
       <section class="hero text-center" id="home">
 
@@ -280,7 +280,7 @@
     
     <FooterComponent ref="footerComponent"/>
 
-    <a href="#top" class="back-top-btn active" aria-label="back to top">
+    <a href="#home" class="back-top-btn active" aria-label="back to top">
       <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
     </a>
   </div>
@@ -299,6 +299,7 @@ export default {
 },
     data() {
       return {
+        isShowReLoad:false,
         srcBackGroundImageList:
         [
           require('../../src/assets/images/hero-slider-1.jpg'),
@@ -310,7 +311,7 @@ export default {
       };
     },
     created(){
-      //this.$refs.loadingComponent.isShowLoading = true; 
+      this.isShowReLoad = true; 
       this.userDataHandler();
       this.startImageSlider();
     },
@@ -334,9 +335,12 @@ export default {
           },
         });
       },
-      confirmLogout() {
+      async confirmLogout() {
         localStorage.removeItem('userInfo');
+        this.isShowReLoad = true;
+        await this.sleep(1000);
         window.location.reload();
+        this.isShowReLoad = false;
       },
       userDataHandler(){
         let userString = localStorage.getItem('userInfo');
@@ -363,8 +367,9 @@ export default {
         return this.srcBackGroundImageList[this.indexBackGroundImage];
       },
     },
-    mounted(){
-      //this.$refs.loadingComponent.isShowLoading = false;
+    async mounted(){
+      await this.sleep(1000);
+      this.isShowReLoad = false;
     }
 }
 </script>
