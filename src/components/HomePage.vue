@@ -338,7 +338,6 @@ export default {
       async confirmLogout() {
         localStorage.removeItem('userInfo');
         this.isShowReLoad = true;
-        await this.sleep(1000);
         window.location.reload();
         this.isShowReLoad = false;
       },
